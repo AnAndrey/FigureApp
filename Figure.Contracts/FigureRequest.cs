@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Figure.Contracts
+{
+    public class FigureRequest
+    {
+        public string Type { get; set; }
+        public Dictionary<string, int> Params { get; set; }
+    }
+}
