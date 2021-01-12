@@ -34,8 +34,8 @@ namespace FigureApp.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetFigure(int id)
         {
-            var square = await FigureService.GetFigureSquareAsync(id);
-            return Ok(square);
+            var area = await FigureService.GetFigureAreaAsync(id);
+            return Ok(area);
         }
     }
 }
