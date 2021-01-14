@@ -6,44 +6,6 @@ using System.Threading.Tasks;
 
 namespace Figure.Business
 {
-    public interface IArea
-    {
-        double GetSqare();
-    }
-
-    public interface IValidate
-    {
-        bool IsValid();
-    }
-
-    public interface IFigure : IValidate, IArea { }
-
-    public class Circle : IFigure
-    {
-        public int? Radius { get; set; }
-        public double GetSqare() 
-        {
-            return Math.PI * Math.Pow(Radius.Value, 2);
-        }
-
-        public bool IsValid()
-        {
-            return Radius.HasValue;
-        }
-    }
-
-    public class Triangle
-    {
-
-    }
-    public class FigureDeserializer
-    {
-        public bool TryDeserialize<T>(string json, out T val) 
-        {
-            val = JsonConvert.DeserializeObject<T>(json);
-            return false;
-        }
-    }
     public class FigureService : IFigureService
     {
         private readonly IFigureRepository _repository;

@@ -21,7 +21,10 @@ namespace Figure.SqliteDb
         }
         public async Task<FigureRecord> GetAsync(int id)
         {
-            return await _dbContext.Figures.Where(x => x.Id == id).FirstOrDefaultAsync();
+            return await _dbContext.Figures
+                .AsNoTracking()
+                .Where(x => x.Id == id)
+                .FirstOrDefaultAsync();
         }
     }
 }
