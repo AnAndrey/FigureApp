@@ -48,13 +48,12 @@ namespace Figure.Business
 
         private IFigure DeserializeToFigure(FigureRecord record) 
         {
-            switch (record.Type) 
+            return record.Type switch
             {
-                case FigureType.Circle:
-                    return JsonConvert.DeserializeObject<Circle>(record.Params);
-                default:
-                    throw new Exception($"Invalid figure type '{record.Type}'");
-            }
+                FigureType.Circle => JsonConvert.DeserializeObject<Circle>(record.Params),
+                FigureType.Triangle => JsonConvert.DeserializeObject<Triangle>(record.Params),
+                _ => throw new Exception($"Invalid figure type '{record.Type}'"),
+            };
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Figure.Business
 
         public bool IsValid()
         {
-            return Radius.HasValue;
+            return Radius.HasValue && Radius.Value > 0;
         }
     }
 }
