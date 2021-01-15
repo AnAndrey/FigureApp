@@ -23,7 +23,7 @@ namespace Figure.Host.Middleware
                     Logger.LogError(fe.Message);
                     break;
                 default:
-                    Logger.LogError(e, e.Message);
+                    Logger.LogError(e, e.Message); //Log exception with stack trace
                     break;
             }
         }
