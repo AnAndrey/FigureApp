@@ -17,7 +17,6 @@ namespace Figure.Business
         }
         public async Task<int> SaveFigureAsync(FigureRequest figureRequest)
         {
-
             if (figureRequest.Params == null || figureRequest.Params.Count == 0)
                 throw new FigureException($"The property '{nameof(figureRequest.Params)}' should not be empty.");
 

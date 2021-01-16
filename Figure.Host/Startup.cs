@@ -27,7 +27,7 @@ namespace FigureApp
                 o.Filters.Add<ApiExceptionFilterAttribute>();
             } );
             services.AddDb();
-            services.AddSingleton<IFigureRepository, FigureRepository>();
+            services.AddScoped<IFigureRepository, FigureRepository>();
             services.AddTransient<IFigureService, FigureService>();
         }
 

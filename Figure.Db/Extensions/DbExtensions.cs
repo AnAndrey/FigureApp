@@ -10,7 +10,7 @@ namespace Figure.SqliteDb.Extensions
             return services
                 .AddEntityFrameworkSqlite()
                 .AddDbContext<DatabaseContext>()
-                .AddSingleton<IDatabaseContext>(new DatabaseContext()); ;
+                .AddScoped<IDatabaseContext>(_ => new DatabaseContext()); ;
         }
     }
 
