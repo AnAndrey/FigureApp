@@ -15,9 +15,9 @@ namespace Figure.SqliteDb
         }
         public async Task<FigureRecord> SaveAsync(FigureRecord figure)
         {
-            var entity = _dbContext.Figures.Add(figure);
+            _dbContext.Figures.Add(figure);
             await _dbContext.SaveChangesAsync();
-            return entity.Entity;
+            return figure;
         }
         public async Task<FigureRecord> GetAsync(int id)
         {

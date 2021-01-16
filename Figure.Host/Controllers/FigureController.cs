@@ -14,28 +14,26 @@ namespace FigureApp.Controllers
     [Route("figure")]
     public class FigureController : ControllerBase
     {
-        private readonly ILogger<FigureController> _logger;
         public IFigureService FigureService { get; }
 
-        public FigureController(ILogger<FigureController> logger, IFigureService figureService)
+        public FigureController(IFigureService figureService)
         {
-            _logger = logger;
             FigureService = figureService;
         }
         
 
         [HttpPost]
-        public async Task<IActionResult> CreateFigure([FromBody] FigureRequest figure)
+        public async Task<IActionResult> CreateFigureAsync([FromBody] FigureRequest figure)
         {
-            var figureId = await FigureService.SaveFigureAsync(figure);
-            return Ok(figureId);
+            var figureResponse = await FigureService.SaveFigureAsync(figure);
+            return Ok(figureResponse);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetFigure(int id)
+        public async Task<IActionResult> GetFigureAsync(int id)
         {
-            var area = await FigureService.GetFigureAreaAsync(id);
-            return Ok(area);
+            var areaResponse = await FigureService.GetFigureAreaAsync(id);
+            return Ok(areaResponse);
         }
     }
 }

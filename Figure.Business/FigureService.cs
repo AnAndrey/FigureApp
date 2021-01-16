@@ -15,7 +15,7 @@ namespace Figure.Business
         {
             _repository = repository;
         }
-        public async Task<int> SaveFigureAsync(FigureRequest figureRequest)
+        public async Task<CreatedFigureResponce> SaveFigureAsync(FigureRequest figureRequest)
         {
             if (figureRequest.Params == null || figureRequest.Params.Count == 0)
                 throw new FigureException($"The property '{nameof(figureRequest.Params)}' should not be empty.");
@@ -27,10 +27,14 @@ namespace Figure.Business
                 throw new FigureException($"The figure '{figureRequest.Type}' with params '{record.Params}' is invalid.");
 
             var id = (await _repository.SaveAsync(record)).Id;
-            return id;
+            return new CreatedFigureResponce()
+            {
+                Type = figureRequest.Type,
+                Id = id
+            };
         }
 
-        public async Task<double> GetFigureAreaAsync(int id)
+        public async Task<FigureAreaResponce> GetFigureAreaAsync(int id)
         {
             var record = await _repository.GetAsync(id);
 
@@ -38,7 +42,11 @@ namespace Figure.Business
             if (!figure.IsValid())
                 throw new FigureException($"The figure with '{id}' is invalid.");
 
-            return figure.GetSqare();
+            return new FigureAreaResponce()
+            {
+                Id = id,
+                Area = figure.GetSqare()
+            };
         }
 
         private IFigure DeserializeToFigure(FigureRecord record) 

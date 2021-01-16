@@ -7,7 +7,7 @@ namespace Figure.Contracts
 {
     public interface IFigureService
     {
-        Task<int> SaveFigureAsync(FigureRequest figure);
-        Task<double> GetFigureAreaAsync(int id);
+        Task<CreatedFigureResponce> SaveFigureAsync(FigureRequest figure);
+        Task<FigureAreaResponce> GetFigureAreaAsync(int id);
     }
 }
