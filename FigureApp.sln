@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Figure.Host", "Figure.Host\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Figure.SqliteDb", "Figure.Db\Figure.SqliteDb.csproj", "{137DB4A8-8443-4475-A803-5F9D41324023}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Figure.Contracts", "Figure.Contracts\Figure.Contracts.csproj", "{39505606-D036-4C63-B542-97BFAA872CC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Figure.Contracts", "Figure.Contracts\Figure.Contracts.csproj", "{39505606-D036-4C63-B542-97BFAA872CC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Figure.Business", "Figure.Business\Figure.Business.csproj", "{DDE9E73E-41A8-48D9-B26F-21B12813F616}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Figure.Business", "Figure.Business\Figure.Business.csproj", "{DDE9E73E-41A8-48D9-B26F-21B12813F616}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AF22C452-D865-4AD1-9900-236D1FF9158A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Figure.Api.Tests", "Figure.Api.Tests\Figure.Api.Tests.csproj", "{D9AEDF26-1C84-4CB8-BB14-20D0365AC4C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +37,16 @@ Global
 		{DDE9E73E-41A8-48D9-B26F-21B12813F616}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDE9E73E-41A8-48D9-B26F-21B12813F616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDE9E73E-41A8-48D9-B26F-21B12813F616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9AEDF26-1C84-4CB8-BB14-20D0365AC4C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9AEDF26-1C84-4CB8-BB14-20D0365AC4C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9AEDF26-1C84-4CB8-BB14-20D0365AC4C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9AEDF26-1C84-4CB8-BB14-20D0365AC4C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D9AEDF26-1C84-4CB8-BB14-20D0365AC4C0} = {AF22C452-D865-4AD1-9900-236D1FF9158A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B5B7B826-B6C6-4403-89C8-0BD7EC1D518B}
