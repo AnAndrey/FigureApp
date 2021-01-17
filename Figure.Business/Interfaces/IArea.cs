@@ -1,6 +1,6 @@
 ﻿namespace Figure.Business
 {
-    public interface IArea
+    internal interface IArea
     {
         double GetSqare();
     }

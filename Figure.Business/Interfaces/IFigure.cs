@@ -1,4 +1,4 @@
 ﻿namespace Figure.Business
 {
-    public interface IFigure : IValidate, IArea { }
+    internal interface IFigure : IValidate, IArea { }
 }

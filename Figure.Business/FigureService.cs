@@ -18,13 +18,13 @@ namespace Figure.Business
         public async Task<CreatedFigureResponce> SaveFigureAsync(FigureRequest figureRequest)
         {
             if (figureRequest.Params == null || figureRequest.Params.Count == 0)
-                throw new FigureException($"The property '{nameof(figureRequest.Params)}' should not be empty.");
+                throw new InvalidFigureRequestException(nameof(figureRequest.Params));
 
             var record = figureRequest.ToFigureRecord();
 
             var figure = DeserializeToFigure(record);
             if (!figure.IsValid())
-                throw new FigureException($"The figure '{figureRequest.Type}' with params '{record.Params}' is invalid.");
+                throw new InvalidFigureException(figureRequest.Type, record.Params);
 
             var id = (await _repository.SaveAsync(record)).Id;
             return new CreatedFigureResponce()
@@ -45,6 +45,7 @@ namespace Figure.Business
             return new FigureAreaResponce()
             {
                 Id = id,
+                Type = record.Type,
                 Area = figure.GetSqare()
             };
         }

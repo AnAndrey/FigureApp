@@ -1,6 +1,6 @@
 ﻿namespace Figure.Business
 {
-    public interface IValidate
+    internal interface IValidate
     {
         bool IsValid();
     }

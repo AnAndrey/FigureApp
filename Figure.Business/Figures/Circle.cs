@@ -2,7 +2,7 @@
 
 namespace Figure.Business
 {
-    public class Circle : IFigure
+    internal class Circle : IFigure
     {
         public int? Radius { get; set; }
         public double GetSqare() 

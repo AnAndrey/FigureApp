@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Figure.Business
 {
-    public class Triangle : IFigure
+    internal class Triangle : IFigure
     {
         public double? SideA { get; set; }
         public double? SideB { get; set; }

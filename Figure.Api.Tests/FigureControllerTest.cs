@@ -34,7 +34,7 @@ namespace Figure.Api.Tests
         }
 
         [Fact]
-        public async Task CheckMarketCreatedTest()
+        public async Task CreateCircle()
         {
             //arrange
             _currentId++;
@@ -49,7 +49,7 @@ namespace Figure.Api.Tests
         }
 
         [Fact]
-        public async Task CheckMarketCreatedTest2()
+        public async Task CreateTriangle()
         {
             //arrange
             _currentId++;
@@ -98,6 +98,29 @@ namespace Figure.Api.Tests
             });
 
             return dbSet.Object;
+        }
+
+        [Fact]
+        public async Task CreateTriangle2()
+        {
+            //arrange
+            _currentId++;
+
+            var request = new FigureRequest()
+            {
+                Type = FigureType.Triangle.ToString(),
+                Params = new Dictionary<string, int> {
+                    { nameof(Triangle.SideA), 18 },
+                    { nameof(Triangle.SideB), 30 },
+                    { nameof(Triangle.SideC), 24 }
+                }
+            };
+
+            //act
+            var actionResult = await _controller.CreateFigureAsync(request);
+
+            //assert
+            CheckCreatedFigureResponce(actionResult, request);
         }
     }
 }
