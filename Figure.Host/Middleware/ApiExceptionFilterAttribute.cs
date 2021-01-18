@@ -17,15 +17,7 @@ namespace Figure.Host.Middleware
         {
             var e = context.Exception;
             context.Result = new BadRequestObjectResult(new { errors = e.Message });
-            switch (e)
-            {
-                case FigureException fe:
-                    Logger.LogError(fe.Message);
-                    break;
-                default:
-                    Logger.LogError(e, e.Message); //Log exception with stack trace
-                    break;
-            }
+            Logger.LogError(e, e.Message);
         }
     }
 }

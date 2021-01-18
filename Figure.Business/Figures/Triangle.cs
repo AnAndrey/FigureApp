@@ -9,6 +9,16 @@ namespace Figure.Business
         public double? SideA { get; set; }
         public double? SideB { get; set; }
         public double? SideC { get; set; }
+
+        internal Triangle()
+        { 
+        }
+        internal Triangle(double sideA, double sideB, double sideC) 
+        {
+            SideA = sideA;
+            SideB = sideB;
+            SideC = sideC;
+        }
         public double GetSqare()
         {
             //Heron's Formula

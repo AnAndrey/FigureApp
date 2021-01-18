@@ -4,6 +4,13 @@ namespace Figure.Business
 {
     internal class Circle : IFigure
     {
+        internal Circle()
+        {
+        }
+        internal Circle(int radius) 
+        {
+            Radius = radius;
+        }
         public int? Radius { get; set; }
         public double GetSqare() 
         {

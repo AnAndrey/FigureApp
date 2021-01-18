@@ -37,10 +37,12 @@ namespace Figure.Business
         public async Task<FigureAreaResponce> GetFigureAreaAsync(int id)
         {
             var record = await _repository.GetAsync(id);
+            if(record==null)
+                throw new NotFoundFigureException(id);
 
             var figure = DeserializeToFigure(record);
             if (!figure.IsValid())
-                throw new FigureException($"The figure with '{id}' is invalid.");
+                throw new CorruptedFigureException(id);
 
             return new FigureAreaResponce()
             {
@@ -56,7 +58,7 @@ namespace Figure.Business
             {
                 FigureType.Circle => JsonConvert.DeserializeObject<Circle>(record.Params),
                 FigureType.Triangle => JsonConvert.DeserializeObject<Triangle>(record.Params),
-                _ => throw new FigureException($"Invalid figure type '{record.Type}'"),
+                _ => throw new InvalidFigureTypeException(record.Type.ToString()),
             };
         }
     }

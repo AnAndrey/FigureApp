@@ -13,7 +13,7 @@ namespace Figure.Business
         public static FigureRecord ToFigureRecord(this FigureRequest request)
         {
             if (!Enum.TryParse<FigureType>(request.Type, out var type))
-                throw new FigureException($"The figure type '{request.Type}' is invalid.");
+                throw new InvalidFigureTypeException(request.Type);
 
             string jsonParams = JsonConvert.SerializeObject(request.Params);
             return new FigureRecord()

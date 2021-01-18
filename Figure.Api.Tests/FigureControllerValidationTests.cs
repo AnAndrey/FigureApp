@@ -23,8 +23,8 @@ namespace Figure.Api.Tests
     {
 
         [Theory]
-        [CustomDataAttribute]
-        public async Task FigureController_CreateFigureAsyncWithInvalidData_ShouldThrowException(FigureRequest request, Type expected)
+        [InvalidFigureRequests]
+        public async Task CreateFigureAsyncWithInvalidData_ShouldThrowException(FigureRequest request, Type expectedException)
         {
             //arrange
             var figureRepository = new FigureRepository(null);
@@ -32,10 +32,10 @@ namespace Figure.Api.Tests
             var controller = new FigureController(figureService);
 
             //act & assert
-            var exception = await Assert.ThrowsAsync(expected, async () => await controller.CreateFigureAsync(request));
+            var exception = await Assert.ThrowsAsync(expectedException, async () => await controller.CreateFigureAsync(request));
         }
 
-        private class CustomDataAttribute : DataAttribute
+        private class InvalidFigureRequestsAttribute : DataAttribute
         {
             public override IEnumerable<object[]> GetData(MethodInfo testMethod)
             {
@@ -51,9 +51,12 @@ namespace Figure.Api.Tests
                         { nameof(Triangle.SideC), 4 }, 
                         { nameof(Triangle.SideB), 5 } } }, 
                     typeof(InvalidFigureException) };
+                yield return new object[] { new FigureRequest() { Type = "InvalidFigureType",
+                    Params = new Dictionary<string, int> {
+                        { "Param", 1 }}},
+                    typeof(InvalidFigureTypeException) };
             }
         }
-
     }
     
 
