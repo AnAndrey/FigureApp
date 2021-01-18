@@ -40,19 +40,19 @@ namespace Figure.Api.Tests
             public override IEnumerable<object[]> GetData(MethodInfo testMethod)
             {
                 yield return new object[] { new FigureRequest() { Type = FigureType.Circle.ToString(),
-                    Params = new Dictionary<string, int> () }, typeof(InvalidFigureRequestException) };
+                    Params = new Dictionary<string, double> () }, typeof(InvalidFigureRequestException) };
                 yield return new object[] { new FigureRequest() { Type = FigureType.Circle.ToString(),
-                    Params = new Dictionary<string, int> { { nameof(Circle.Radius), -1 } } }, typeof(InvalidFigureException) };
+                    Params = new Dictionary<string, double> { { nameof(Circle.Radius), -1 } } }, typeof(InvalidFigureException) };
                 yield return new object[] { new FigureRequest() { Type = FigureType.Triangle.ToString(),
-                    Params = new Dictionary<string, int> () }, typeof(InvalidFigureRequestException) };
+                    Params = new Dictionary<string, double> () }, typeof(InvalidFigureRequestException) };
                 yield return new object[] { new FigureRequest() { Type = FigureType.Triangle.ToString(),
-                    Params = new Dictionary<string, int> { 
+                    Params = new Dictionary<string, double> { 
                         { nameof(Triangle.SideA), 1 }, 
                         { nameof(Triangle.SideC), 4 }, 
                         { nameof(Triangle.SideB), 5 } } }, 
                     typeof(InvalidFigureException) };
                 yield return new object[] { new FigureRequest() { Type = "InvalidFigureType",
-                    Params = new Dictionary<string, int> {
+                    Params = new Dictionary<string, double> {
                         { "Param", 1 }}},
                     typeof(InvalidFigureTypeException) };
             }

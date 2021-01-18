@@ -94,7 +94,7 @@ namespace Figure.Api.Tests
         }
 
         [Fact]
-        public async Task GetTriangleAre2a()
+        public async Task GetFigureAreaAsyncWithInvalidParams_ShouldThrowCorruptedFigureException()
         {
             //arrange
             var id = _currentId;

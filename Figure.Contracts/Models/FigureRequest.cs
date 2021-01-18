@@ -7,6 +7,6 @@ namespace Figure.Contracts
     public class FigureRequest
     {
         public string Type { get; set; }
-        public Dictionary<string, int> Params { get; set; }
+        public Dictionary<string, double> Params { get; set; }
     }
 }

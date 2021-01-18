@@ -11,7 +11,7 @@ namespace Figure.Business
         {
             Radius = radius;
         }
-        public int? Radius { get; set; }
+        public double? Radius { get; set; }
         public double GetSqare() 
         {
             return Math.PI * Math.Pow(Radius.Value, 2);
