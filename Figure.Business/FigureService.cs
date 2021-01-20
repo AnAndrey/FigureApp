@@ -47,7 +47,7 @@ namespace Figure.Business
             return new FigureAreaResponce()
             {
                 Id = id,
-                Type = record.Type,
+                Type = record.Type.ToString(),
                 Area = figure.GetSqare()
             };
         }

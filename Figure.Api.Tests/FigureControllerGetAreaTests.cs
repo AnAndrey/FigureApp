@@ -35,7 +35,7 @@ namespace Figure.Api.Tests
                             .Subject;
 
             response.Should().NotBeNull();
-            response.Type.Should().Be(record.Type);
+            response.Type.Should().Be(record.Type.ToString());
             response.Id.Should().Be(record.Id);
             response.Area.Should().Be(Math.PI);
         }
@@ -62,7 +62,7 @@ namespace Figure.Api.Tests
                             .Subject;
 
             response.Should().NotBeNull();
-            response.Type.Should().Be(record.Type);
+            response.Type.Should().Be(record.Type.ToString());
             response.Id.Should().Be(record.Id);
             response.Area.Should().Be(47.79871860207133);
         }

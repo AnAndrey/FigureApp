@@ -4,6 +4,6 @@
     {
         public double Area { get; set; }
         public int Id { get; set; }
-        public FigureType Type { get; set; }
+        public string Type { get; set; }
     }
 }
