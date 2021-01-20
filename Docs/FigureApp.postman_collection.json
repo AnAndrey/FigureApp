@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "50a05c10-3aa3-4eea-94d8-20ff45b8e831",
+		"name": "FigureApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Save circle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Type\": \"Circle\",\r\n    \"params\":{\r\n        \"Radius\" : 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/figure",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"figure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save triangle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Type\": \"Triangle\",\r\n    \"params\":{\r\n        \"SideA\" : 2,\r\n        \"SideB\" : 2,\r\n        \"SideC\" : 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/figure",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"figure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get area",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/figure/{id}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"figure",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
