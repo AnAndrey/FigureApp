@@ -5,7 +5,7 @@ namespace Figure.SqliteDb
 {
     public class DatabaseContext : DbContext, IDatabaseContext
     {
-        private const string ConnectionString = "Data Source='../figure.db'";
+        private const string ConnectionString = "Data Source='../FigureStorage.db'";
         public DbSet<FigureRecord> Figures { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options) 
             => options.UseSqlite(ConnectionString);
